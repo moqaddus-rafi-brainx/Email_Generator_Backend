@@ -1,19 +1,8 @@
-const OpenAI = require('openai');
 const {
   generateEmailFromOpenAI,
-  resetMessages,
+  resetMessages
 } = require('../services/openaiService');
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
-let messages = [
-  {
-    role: 'system',
-    content: 'You are a helpful assistant that writes professional emails.',
-  },
-];
 
 const generateEmail = async (req, res) => {
   const { prompt,type,tone } = req.body;
